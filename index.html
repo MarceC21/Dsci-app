@@ -6,57 +6,83 @@
 </head>
 
 <body>
-    <!-- HEADER: inicio de la historia -->
+
+    <!-- Nombre de la app-->
     <header>
-        <h1>¡Bienvenido a Dsci-app!</h1>
+        <h1>Dsci-app</h1>
+        <h2>Crea una misión</h2>
+
+        <div class="datos-usuario">
+            <span id="xp">XP: 0</span>
+            <span id="level">Nivel: Principiante</span>
+        </div>
+
     </header>
 
-     <!-- HEADER -->
-    <header>
-        <h1>Crea una misión</h1>
-    </header>
+    <!-- Formulario para crear una nueva misión-->
+    <main class="formulario">
+        <h2>Nueva misión</h2>
+        <p>
+            Completa los campos para crear tu nueva misión.
+        </p>
 
-    <br>
+        <form id="misionForm">
 
-    <!-- FORMULARIO PARA MISIÓN -->
-    
-    <main class="card">
-      <h1>Formulario</h1>
-      <p class="muted">
-        Al enviar: se imprime en Console y luego se vacían los campos.
-      </p>
+            <label>
+                Nombre
+                <input id="name" name="name" type="text" 
+                       placeholder="Ej: Leer 20 minutos..." required />
+            </label>
 
-      <form id="misionForm">
-        <label>
-          Nombre
-          <input id="name" name="name" type="text" placeholder="Ej: Leer 20 minutos...." required />
-        </label>
+            <label>
+                Descripción
+                <input id="description" name="description" type="text" 
+                       placeholder="Ej: Leer 20 minutos de un libro..." required />
+            </label>
 
-        <label>
-          Descripción
-          <input id="description" name="description" type="text" placeholder="Ej: Leer 20 minutos de un libro..." required />
-        </label>
+            <!-- Se usa select para que eliga el nivel de dificultad y no lo escriba-->
+            <label>
+                Dificultad
+                <select id="difficulty" name="difficulty" required>
+                    <option value="">Seleccione una opción</option>
+                    <option value="facil">Fácil</option>
+                    <option value="media">Media</option>
+                    <option value="dificil">Difícil</option>
+                </select>
+            </label>
+ 
+            <button type="submit">Registrar Misión</button>
 
-        <label>
-          Dificultad
-          <input id="difficulty" name="difficulty" type="text" placeholder="Ej: Fácil, Media, Difícil..." required />
-        </label>
+        </form> 
 
-        <button type="submit">Registrar Misión</button>
-      </form>
-
-      <p id="status" class="muted">Estado: esperando envío…</p>
+        <p id="status" >Estado: esperando envío…</p>
     </main>
 
+    <!-- Parte para ver cuantas se lleva-->
 
-    <!-- FOOTER: cierre del inicio -->
+    <section>
+        <h2>Estadísticas</h2>
+        <span id="done">Completadas: 0</span>
+        <span id="pending">Pendientes: 0</span>
+      </section>
+
+
+    <!-- Para las liats de las misiones-->
+
+    <section>
+        <h2>Misiones pendientes</h2>
+        <ul id="pendingList"></ul>
+
+        <h2>Misiones completadas</h2>
+        <ul id="completedList"></ul>
+    </section>
+ 
     <footer>
         <small>
-            Hacer buenos hábitso lleva tiempo, pero con constancia se logran grandes cambios. ¡Ánimo con tu misión!
+            Hacer buenos hábitos lleva tiempo, pero con constancia se logran grandes cambios. ¡Ánimo con tu misión!
         </small>
     </footer>
-
-
+ <script src="app.js"></script>
 </body>
 </html>
 
