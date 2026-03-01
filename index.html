@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dsci-app</title>
+</head>
+
+<body>
+    <!-- HEADER: inicio de la historia -->
+    <header>
+        <h1>¡Bienvenido a Dsci-app!</h1>
+    </header>
+
+     <!-- HEADER -->
+    <header>
+        <h1>Crea una misión</h1>
+    </header>
+
+    <br>
+
+    <!-- FORMULARIO PARA MISIÓN -->
+    
+    <main class="card">
+      <h1>Formulario</h1>
+      <p class="muted">
+        Al enviar: se imprime en Console y luego se vacían los campos.
+      </p>
+
+      <form id="misionForm">
+        <label>
+          Nombre
+          <input id="name" name="name" type="text" placeholder="Ej: Leer 20 minutos...." required />
+        </label>
+
+        <label>
+          Descripción
+          <input id="description" name="description" type="text" placeholder="Ej: Leer 20 minutos de un libro..." required />
+        </label>
+
+        <label>
+          Dificultad
+          <input id="difficulty" name="difficulty" type="text" placeholder="Ej: Fácil, Media, Difícil..." required />
+        </label>
+
+        <button type="submit">Registrar Misión</button>
+      </form>
+
+      <p id="status" class="muted">Estado: esperando envío…</p>
+    </main>
+
+
+    <!-- FOOTER: cierre del inicio -->
+    <footer>
+        <small>
+            Hacer buenos hábitso lleva tiempo, pero con constancia se logran grandes cambios. ¡Ánimo con tu misión!
+        </small>
+    </footer>
+
+
+</body>
+</html>
+
