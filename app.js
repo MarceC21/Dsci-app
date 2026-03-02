@@ -6,7 +6,7 @@
 let misionesPendientes = [];
 let misionesCompletadas = [];
 let xp = 0;
-let nivel = "Principiante";
+let level = "Principiante";
 
 
 // Referencias a elementos del DOM
@@ -15,8 +15,7 @@ const statusEl = document.querySelector("#status");
 const doneEl = document.querySelector("#done");
 const pendingEl = document.querySelector("#pending");
 const xpEl = document.querySelector("#xp");
-const levelEl = document.querySelector("#level");
-
+const nivelEl = document.querySelector("#level");
 
 const pendingList = document.querySelector("#pendingList");
 const completedList = document.querySelector("#completedList");
@@ -43,23 +42,50 @@ form.addEventListener("submit", (event) => {
 
   form.reset();
   statusEl.textContent = "Estado: misión agregada";
+  console.log("Nueva misión creada:", nuevaMision);
 });
 
 // Función para completar una misión pendiente, moviéndola al array de misiones completadas y actualizando el estado del usuario
 function completarMision(id) {
-  // Buscar la misión por ID en el array de misiones pendientes
   const index = misionesPendientes.findIndex(m => m.id === id);
-
-  // Si no se encuentra la misión, salir de la función
   if (index === -1) return;
 
-  //Splice para eliminar la misión del array de pendientes y push para agregarla al array de completadas
   const mision = misionesPendientes.splice(index, 1)[0];
   misionesCompletadas.push(mision);
 
+  console.log("Completando misión:", mision);
+
+  // Actualizar el puntaje del usuario basado en la dificultad de la misión completada
+if (mision.dificultad === "facil") {
+  xp += 10;
+} else if (mision.dificultad === "normal") {
+  xp += 25;
+} else if (mision.dificultad === "dificil") {
+  xp += 50;
+}
+
+  console.log("XP después de sumar:", xp);
+
+  actualizarNivel();   //cada vez que se completa una misión, se actualiza el nivel del usuario
+  renderXP();         
   renderPendientes();
   renderCompletadas();
+  statusEl.textContent = "Estado: misión completada";
 }
+
+// Función para actualizar el nivel del usuario basado en su XP
+function actualizarNivel() {
+  if (xp >= 60) {
+    level = "Avanzado";
+  } else if (xp >= 30) {
+    level = "Intermedio";
+  } else {
+    level = "Principiante";
+  }
+
+  console.log("Nivel actualizado:", level);
+}
+
 
 // Función para renderizar la lista de misiones pendientes y actualizar el contador
 function renderPendientes() {
@@ -106,6 +132,7 @@ function renderPendientes() {
 function eliminarMision(id) {
   misionesPendientes = misionesPendientes.filter(m => m.id !== id);
   renderPendientes();
+  console.log("Misión eliminada:", id);
 }
 
 
@@ -121,4 +148,11 @@ function renderCompletadas() {
   });
 
   doneEl.textContent = "Completadas: " + misionesCompletadas.length;
+}
+
+// Función para renderizar el puntaje y nivel del usuario
+function renderXP() {
+  xpEl.textContent = "XP: " + xp;
+  nivelEl.textContent = "Nivel: " + level;
+  console.log("Renderizando XP:", xp, "Nivel:", level);
 }
