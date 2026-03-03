@@ -79,7 +79,9 @@ git clone <URL_DEL_REPOSITORIO>
 ```
 2. Entrar a la carpeta del proyecto:
 
+```bash
 cd disci-app
+```
 
 3. Abrir el archivo index.html ubicado en la carpeta src/ en el navegador
 
@@ -94,13 +96,13 @@ Si utiliza Visual Studio Code:
 
 ## Capturas 
 -Pantalla principal
-![Captura1]()
+![Captura1](capturas/Cap1.png)
 
 -Creación de misión
-![Captura1]()
+![Captura1](capturas/Cap2.png)
 
 -Misión completada y actualización de XP
-![Captura1]()
+![Captura1](capturas/Cap3.png)
 
 ## Video
 
