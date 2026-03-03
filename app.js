@@ -51,6 +51,10 @@ function completarMision(id) {
   if (index === -1) return;
 
   const mision = misionesPendientes.splice(index, 1)[0];
+
+  // Cambiar el estado de la misión a "completada" antes de moverla al array de misiones completadas
+  mision.estado = "SUCCESFUL";
+  
   misionesCompletadas.push(mision);
 
   console.log("Completando misión:", mision);
@@ -94,6 +98,7 @@ function renderPendientes() {
   misionesPendientes.forEach((mision) => {
     const li = document.createElement("li");
     li.dataset.id = mision.id;
+    li.classList.add("card-mision");  // Agregar clase para estilo
 
     // Checkbox
     const checkbox = document.createElement("input");
@@ -142,6 +147,7 @@ function renderCompletadas() {
 
   misionesCompletadas.forEach((mision) => {
     const li = document.createElement("li");
+    li.classList.add("card-mision"); // Agregar clase para estilo
     li.textContent = `${mision.name} - ${mision.description}`;
 
     completedList.appendChild(li);
@@ -156,3 +162,8 @@ function renderXP() {
   nivelEl.textContent = "Nivel: " + level;
   console.log("Renderizando XP:", xp, "Nivel:", level);
 }
+
+
+renderXP();
+renderPendientes();
+renderCompletadas();

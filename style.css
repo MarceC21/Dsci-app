@@ -1,0 +1,223 @@
+
+/* DsciApp - STYLE */
+
+/* VARIABLES DE COLOR    */
+
+:root {
+  --color-primario: #4f46e5;      /* Azul violeta */
+  --color-secundario: #7c3aed;    /* Morado */
+  --color-acento: #10b981;        /* Verde éxito */
+  --color-fondo-oscuro: #0f172a;  /* Azul muy oscuro */
+  --color-card: #1e293b;          /* Gris azulado */
+  --color-texto: #f1f5f9;
+  --color-texto-secundario: #94a3b8;
+}
+
+/* TEMAS ALTERNATIVOS    */
+
+.tema-fondo {
+    background: radial-gradient(
+        circle,
+        rgba(116, 13, 184, 0.5) 40%,
+        rgba(95, 114, 227, 0.85) 100%
+    );
+}
+
+
+.tema-salida .contenido::before {
+    background:
+        /* Rayo verde diagonal */
+        linear-gradient(
+            120deg,
+            rgba(0,255,120,0.4) 0%,
+            rgba(0,255,120,0.2) 40%,
+            transparent 70%
+        ),
+
+        /* Halo verde en el centro */
+        radial-gradient(
+            circle,
+            rgba(0,255,120,0.4) 10%,
+            rgba(0,255,120,0.15) 50%,
+            transparent 80%
+        );
+}
+
+
+/* ESTILO BASE GENERAL   */
+
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(
+    135deg,
+    var(--color-fondo-oscuro),
+    #1e1b4b
+  );
+  color: var(--color-texto);
+  padding: 30px;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
+}
+
+
+/* HEADERS               */
+
+header {
+  margin-bottom: 40px;
+}
+
+h1 {
+  font-size: 42px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 800;
+
+  color: #4cc9f0; /* azul brillante */
+
+  text-shadow:
+    0 0 5px rgba(76, 201, 240, 0.6),
+    0 0 10px rgba(76, 201, 240, 0.4),
+    0 0 20px rgba(76, 201, 240, 0.2);
+
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 20px;
+  color: var(--color-texto-secundario);
+}
+
+
+
+/*Para los datos*/
+.datos-usuario {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+#xp {
+  color: var(--color-acento);
+}
+
+#level {
+  color: var(--color-secundario);
+}
+
+
+/* Para el forms */
+form {
+  background: var(--color-card);
+  padding: 25px;
+  border-radius: 14px;
+  max-width: 500px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+}
+
+input, select {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+
+/* BOTON DE REGISTRAR */
+
+button {
+  background: linear-gradient(
+    90deg,
+    var(--color-primario),
+    var(--color-secundario)
+  );
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 12px var(--color-secundario);
+}
+
+
+/* PARA LALISTA DE LA MISIÓN */
+
+.card-mision {
+  background: var(--color-card);
+  padding: 15px 20px;
+  margin: 12px auto;
+  border-radius: 12px;
+  max-width: 600px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  transition: 0.3s ease;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.card-mision:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.card-mision span {
+  flex: 1;
+  text-align: left;
+}
+
+
+/* PARA ESTADISTICAS  */
+
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+section {
+  margin-top: 40px;
+}
+
+#done {
+  color: var(--color-acento);
+  margin-right: 15px;
+}
+
+#pending {
+  color: var(--color-secundario);
+}
+
+/* ===================== */
+/* FOOTER                */
+/* ===================== */
+
+footer {
+  margin-top: 50px;
+  color: var(--color-texto-secundario);
+  font-size: 13px;
+}
+
+header,
+section,
+footer {
+  text-align: center;
+  width: 100%;
+  max-width: 800px;
+}
